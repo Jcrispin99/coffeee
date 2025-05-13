@@ -133,3 +133,5 @@ CRISPY_TEMPLATE_PACK = "tailwind"
 
 LOGIN_REDIRECT_URL = "list_product"
 LOGOUT_REDIRECT_URL = "list_product"
+# filepath: c:\Users\jhami\Desktop\coffee_shop\coffee_shop\coffee_shop\settings.py
+LOGIN_URL = "login"

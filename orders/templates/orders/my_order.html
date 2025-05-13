@@ -1,12 +1,22 @@
 {% extends 'base.html' %}
 
-
 {% block title %}Mis Órdenes{% endblock %}
 
 {% block content %}
-    {{ order.user.username }} 
-    {{ order.order_date }} 
+    <h1>Orden de {{ order.user.username }}</h1>
+    <p>Fecha: {{ order.order_date }}</p>
 
-    {{ debug order }}
-
+    <h2>Productos en la orden:</h2>
+    <ul>
+        {% for product_order in order.orderproduct_set.all %}
+            <li>
+                Producto: {{ product_order.product.name }} <br>
+                Precio: {{ product_order.product.price }} <br>
+                Cantidad: {{ product_order.quantity }} <br>
+                Total: {{ product_order.product.price|floatformat:2 }}
+            </li>
+        {% empty %}
+            <p>No hay productos en esta orden.</p>
+        {% endfor %}
+    </ul>
 {% endblock %}
